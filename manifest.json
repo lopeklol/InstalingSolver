@@ -1,0 +1,18 @@
+{
+  "manifest_version": 3,
+  "name": "Instaling Solver",
+  "version": "1.0",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": ["*://instaling.pl/ling2/html_app/app.php*"],
+      "js": ["content.js"],
+      "run_at": "document_start"
+    }
+  ],
+  "permissions": [
+    "storage"
+  ]
+}

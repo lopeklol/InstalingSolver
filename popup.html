@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <meta charset="UTF-8">
+        <style>
+            body {
+                background: #1e1e1e;
+                color: #eee;
+                font-family: "Segoe UI", sans-serif;
+                margin: 0;
+                padding: 10px;
+            }
+
+            main {
+                display: flex;
+                flex-direction: column;
+                gap: 8px;
+                width: 280px;
+            }
+
+            label {
+                font-size: 14px;
+                color: #ccc;
+            }
+
+            input, textarea {
+                width: 100%;
+                box-sizing: border-box;
+                font-size: 14px;
+                background: #2a2a2a;
+                color: #eee;
+                border: 1px solid #3a3a3a;
+                border-radius: 4px;
+                padding: 6px 8px;
+                outline: none;
+                transition: border-color 0.2s;
+            }
+
+            input:focus, textarea:focus {
+                border-color: #007acc;
+            }
+
+            textarea {
+                min-height: 70px;
+                resize: vertical;
+            }
+
+            #save {
+                background: #059e00;
+                color: #fff;
+                border: none;
+                border-radius: 4px;
+                padding: 8px;
+                font-size: 14px;
+                cursor: pointer;
+                transition: background 0.2s;
+            }
+
+            button:hover {
+                background: #0095ff;
+            }
+
+            span {
+                font-size: 12px;
+                color: #aaa;
+                min-height: 16px;
+            }
+
+            ::placeholder {
+                color: #777;
+            }
+
+            .radioContainer {
+                display: flex;
+                justify-content: start;
+                align-items: center;
+                height: 20px;
+            }
+
+            .radioContainer input {
+                width: auto !important;
+            }
+        </style>
+    </head>
+    <body>
+        <main>
+            <label for="midDelay">Opóźnienie bazowe (ms):</label>
+            <input id="midDelay" placeholder="100000" />
+
+            <label for="deltaDelay">Delta opóźnienia (ms):</label>
+            <input id="deltaDelay" placeholder="2000" />
+
+            <label for="deltaType">Tryb liczenia opóźnienia:</label>
+
+            <div class="radioContainer">
+                <input type="radio" id="deltaTypeMean" name="deltaType" value="mean" />
+                <label for="deltaTypeMean">Stałe (średnia)</label>
+            </div>
+
+            <div class="radioContainer">
+                <input type="radio" id="deltaTypeUniform" name="deltaType" value="uniform" />
+                <label for="deltaTypeUniform">Jednostajny</label>
+            </div>
+
+            <div class="radioContainer">
+                <input type="radio" id="deltaTypeTriangular" name="deltaType" value="triangular" />
+                <label for="deltaTypeTriangular">Trójkątny</label>
+            </div>
+
+            <div class="radioContainer">
+                <input type="radio" id="deltaTypeNormal" name="deltaType" value="normal" />
+                <label for="deltaTypeNormal">Normalny (ścięty)</label>
+            </div>
+
+            <div class="radioContainer">
+                <input type="radio" id="deltaTypeExponential" name="deltaType" value="exponential" />
+                <label for="deltaTypeExponential">Eksponencjalny</label>
+            </div>
+
+            <div class="radioContainer">
+                <input type="radio" id="deltaTypeBimodal" name="deltaType" value="bimodal" />
+                <label for="deltaTypeBimodal">Bimodalny</label>
+            </div>
+
+            <div class="radioContainer">
+                <input type="radio" id="deltaTypeGamma" name="deltaType" value="gamma" />
+                <label for="deltaTypeGamma">Gamma</label>
+            </div>
+
+            <div class="radioContainer">
+                <input type="radio" id="deltaTypePerlin" name="deltaType" value="perlin" />
+                <label for="deltaTypePerlin">Perlin (szum gładki)</label>
+            </div>
+
+            <span id="output"></span>
+            <button id="save">Zapisz</button>
+        </main>
+
+        <script src="popup.js"></script>
+    </body>
+</html>
